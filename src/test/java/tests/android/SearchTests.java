@@ -6,10 +6,10 @@ import screens.SearchResultsScreen;
 import screens.SearchScreen;
 import tests.TestBase;
 
-@Tag("android")
 public class SearchTests extends TestBase {
 
     @Test
+    @Tag("android")
     void successfulSearchTest() {
         SearchScreen searchPage = new SearchScreen();
 
@@ -18,6 +18,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @Tag("android")
     void openAnArticle() {
         SearchScreen searchPage = new SearchScreen();
         SearchResultsScreen searchResultsScreen = new SearchResultsScreen();
