@@ -1,10 +1,12 @@
 package tests.ios;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import screens.UiElements;
 import tests.TestBase;
 
-public class SearchTests extends TestBase {
+@Tag("ios")
+public class IosTests extends TestBase {
 
     @Test
     void checkThatTypedTextIsDisplayed() {

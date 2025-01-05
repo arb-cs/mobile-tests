@@ -1,10 +1,12 @@
 package tests.android;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import screens.SearchResultsScreen;
 import screens.SearchScreen;
 import tests.TestBase;
 
+@Tag("android")
 public class SearchTests extends TestBase {
 
     @Test
