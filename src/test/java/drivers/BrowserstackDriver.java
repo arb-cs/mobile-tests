@@ -32,7 +32,7 @@ public class BrowserstackDriver implements WebDriverProvider {
 
     private AndroidDriver getAndroidDriver() {
         DesiredCapabilities capabilities = commonCapabilities();
-        capabilities.setCapability("device", androidDevice);
+        capabilities.setCapability("deviceName", androidDevice);
         capabilities.setCapability("os_version", androidVersion);
         capabilities.setCapability("app", androidBrowserstackApp);
 
@@ -41,7 +41,7 @@ public class BrowserstackDriver implements WebDriverProvider {
 
     private IOSDriver getIosDriver() {
         DesiredCapabilities capabilities = commonCapabilities();
-        capabilities.setCapability("device", iosDevice);
+        capabilities.setCapability("deviceName", iosDevice);
         capabilities.setCapability("os_version", iosVersion);
         capabilities.setCapability("autoAcceptAlerts", true);
         capabilities.setCapability("app", iosBrowserstackApp);
