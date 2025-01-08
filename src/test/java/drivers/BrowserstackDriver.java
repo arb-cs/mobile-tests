@@ -9,7 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static helpers.BrowserstackHelper.getBrowserstackUrl;
 import static helpers.EnvironmentHelper.*;
-import static config.Project.config;
+import static config.Browserstack.config;
 
 public class BrowserstackDriver implements WebDriverProvider {
 

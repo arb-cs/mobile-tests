@@ -6,7 +6,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({
     "classpath:remote.properties"
 })
-public interface ProjectConfig extends Config {
+public interface BrowserstackConfig extends Config {
     @Key("appUrl")
     String appUrl();
 

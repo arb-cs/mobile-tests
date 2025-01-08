@@ -1,6 +1,6 @@
 package helpers;
 
-import static config.Project.config;
+import static config.Browserstack.config;
 
 public class EnvironmentHelper {
 
