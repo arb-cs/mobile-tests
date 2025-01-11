@@ -66,3 +66,9 @@ task ios_tests(type: Test) {
         includeTags("ios")
     }
 }
+
+task onboarding_tests(type: Test) {
+    useJUnitPlatform{
+        includeTags("onboarding")
+    }
+}
