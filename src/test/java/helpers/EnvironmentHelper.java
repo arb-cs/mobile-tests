@@ -6,6 +6,9 @@ public class EnvironmentHelper {
 
     // Platform config
     public static final String platform = System.getProperty("platform", "android");
+    public static final String deviceHost = System.getProperty("deviceHost", "emulation");
+    public static boolean isBrowserstack = deviceHost.equals("browserstack");
+    public static boolean isEmulation = deviceHost.equals("emulation");
 
     // Browserstack config
     public static final String bsLogin = System.getProperty("bs_login", config.login());
