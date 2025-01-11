@@ -7,12 +7,15 @@ import screens.SearchResultsScreen;
 import screens.SearchScreen;
 import tests.TestBase;
 
+import static com.codeborne.selenide.Selenide.back;
+
 public class SearchTests extends TestBase {
 
     @Test
     @Tag("android")
     @DisplayName("Enter a query in the search box and check that there are search results.")
     void successfulSearchTest() {
+        back();
         SearchScreen searchPage = new SearchScreen();
 
         searchPage.enterSearchQuery("Appium");
@@ -23,6 +26,7 @@ public class SearchTests extends TestBase {
     @Tag("android")
     @DisplayName("Do a search and try to open the first article.")
     void openAnArticle() {
+        back();
         SearchScreen searchPage = new SearchScreen();
         SearchResultsScreen searchResultsScreen = new SearchResultsScreen();
 

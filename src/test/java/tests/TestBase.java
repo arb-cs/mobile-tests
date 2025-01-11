@@ -28,7 +28,6 @@ public class TestBase {
         }
 
         Configuration.browserSize = null;
-        Configuration.timeout = 30000;
     }
 
     @BeforeEach
