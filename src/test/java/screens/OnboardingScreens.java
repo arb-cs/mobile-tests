@@ -10,7 +10,7 @@ import static io.appium.java_client.AppiumBy.className;
 import static io.appium.java_client.AppiumBy.id;
 
 public class OnboardingScreens {
-    private final ElementsCollection pageIndexes = $(id("org.wikipedia.alpha:id/view_onboarding_page_indicator"))
+    private static final ElementsCollection pageIndexes = $(id("org.wikipedia.alpha:id/view_onboarding_page_indicator"))
         .$$(className("android.widget.LinearLayout"));
     private final SelenideElement skipButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")),
         continueButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")),
@@ -18,11 +18,11 @@ public class OnboardingScreens {
         addLangButton = $(id("org.wikipedia.alpha:id/addLanguageButton")),
         headlineTextOnScreens = $(id("org.wikipedia.alpha:id/primaryTextView")),
         mainTextOnScreens = $(id("org.wikipedia.alpha:id/secondaryTextView")),
-        secondScreen = pageIndexes.get(1),
-        thirdScreen = pageIndexes.get(2),
-        fourthScreen = pageIndexes.get(3),
         getStartedButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_done_button"));
 
+    public static SelenideElement secondScreen = pageIndexes.get(1),
+        thirdScreen = pageIndexes.get(2),
+        fourthScreen = pageIndexes.get(3);
 
     @Step("Checking that on the onboarding screens the Skip and Continue buttons are visible.")
     public OnboardingScreens skipAndContineButtonsAreVisible() {
@@ -64,17 +64,9 @@ public class OnboardingScreens {
         return this;
     }
 
-    int count = 0;
+    public OnboardingScreens tapToMoveToTheNextScreen(SelenideElement screen) {
+        screen.click();
 
-    public void tapToMoveToTheNextScreen() {
-        if (count == 0) {
-            secondScreen.click();
-            count += 1;
-        } else if (count == 1) {
-            thirdScreen.click();
-            count += 1;
-        } else {
-            fourthScreen.click();
-        }
+        return this;
     }
 }

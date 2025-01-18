@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 import screens.OnboardingScreens;
 import tests.TestBase;
 
-import static data.Texts.SECOND_PAGE_TEXT;
-import static data.Texts.THIRD_PAGE_TEXT;
-import static data.Texts.FOURTH_PAGE_TEXT;
+import static data.Texts.*;
+import static screens.OnboardingScreens.*;
 
 @Tag("onboarding")
 public class OnboardingTests extends TestBase {
@@ -24,19 +23,19 @@ public class OnboardingTests extends TestBase {
         onboardingScreens.headlineOfTheScreenHasExpectedText("The Free Encyclopedia …in over 300 languages");
 
         // The second screen
-        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.tapToMoveToTheNextScreen(secondScreen);
         onboardingScreens.imageIsVisible();
         onboardingScreens.headlineOfTheScreenHasExpectedText("New ways to explore");
         onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(SECOND_PAGE_TEXT);
 
         // The third screen
-        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.tapToMoveToTheNextScreen(thirdScreen);
         onboardingScreens.imageIsVisible();
         onboardingScreens.headlineOfTheScreenHasExpectedText("Reading lists with sync");
         onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(THIRD_PAGE_TEXT);
 
         // The fourth screen
-        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.tapToMoveToTheNextScreen(fourthScreen);
         onboardingScreens.imageIsVisible();
         onboardingScreens.headlineOfTheScreenHasExpectedText("Data & Privacy");
         onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(FOURTH_PAGE_TEXT);
