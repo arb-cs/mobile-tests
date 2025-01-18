@@ -24,8 +24,8 @@ public class OnboardingScreens {
         thirdScreen = pageIndexes.get(2),
         fourthScreen = pageIndexes.get(3);
 
-    @Step("Checking that on the onboarding screens the Skip and Continue buttons are visible.")
-    public OnboardingScreens skipAndContineButtonsAreVisible() {
+    @Step("Check that on the onboarding screens the Skip and Continue buttons are visible.")
+    public OnboardingScreens skipAndContinueButtonsAreVisible() {
         skipButton.shouldBe(Condition.visible);
         continueButton.shouldBe(Condition.visible);
 
@@ -45,25 +45,28 @@ public class OnboardingScreens {
         return this;
     }
 
-    @Step("Checking")
+    @Step("Check that the headline has expected text.")
     public OnboardingScreens headlineOfTheScreenHasExpectedText(String text) {
         headlineTextOnScreens.shouldHave(Condition.text(text));
 
         return this;
     }
 
+    @Step("Check that the main text meets the requirements.")
     public OnboardingScreens theMainTextOfTheScreenCompliesWithTheRequirements(String text) {
         mainTextOnScreens.shouldHave(Condition.text(text));
 
         return this;
     }
 
+    @Step("The get started button is visible.")
     public OnboardingScreens theGetStartedButtonIsVisible() {
         getStartedButton.shouldBe(Condition.visible);
 
         return this;
     }
 
+    @Step("Tap to move to the next onboarding screen.")
     public OnboardingScreens tapToMoveToTheNextScreen(SelenideElement screen) {
         screen.click();
 

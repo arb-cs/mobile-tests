@@ -17,7 +17,7 @@ public class OnboardingTests extends TestBase {
         OnboardingScreens onboardingScreens = new OnboardingScreens();
 
         // The first screen
-        onboardingScreens.skipAndContineButtonsAreVisible();
+        onboardingScreens.skipAndContinueButtonsAreVisible();
         onboardingScreens.imageIsVisible();
         onboardingScreens.addLanguageButtonIsVisible();
         onboardingScreens.headlineOfTheScreenHasExpectedText("The Free Encyclopedia …in over 300 languages");
