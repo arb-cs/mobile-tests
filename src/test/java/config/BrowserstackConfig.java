@@ -8,14 +8,18 @@ import org.aeonbits.owner.Config;
 })
 public interface BrowserstackConfig extends Config {
     String appUrl();
+
     String project();
 
     @Key("android.deviceModel")
     String deviceModel();
+
     @Key("android.osVersion")
     String osVersion();
+
     @Key("ios.deviceModel")
     String iosDevice();
+
     @Key("ios.osVersion")
     String iosVersion();
 }

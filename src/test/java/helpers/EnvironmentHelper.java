@@ -1,7 +1,5 @@
 package helpers;
 
-import config.Auth;
-
 import static config.Auth.auth;
 import static config.Browserstack.config;
 
