@@ -6,38 +6,40 @@ import org.junit.jupiter.api.Test;
 import screens.OnboardingScreens;
 import tests.TestBase;
 
+import static data.Texts.SECOND_PAGE_TEXT;
+import static data.Texts.THIRD_PAGE_TEXT;
+import static data.Texts.FOURTH_PAGE_TEXT;
+
 @Tag("onboarding")
 public class OnboardingTests extends TestBase {
-
-    OnboardingScreens onboardingScreens = new OnboardingScreens();
-
     @Test
-    @DisplayName("Visibility of the buttons.")
-    void onboardingButtonsAreVisible() {
+    @DisplayName("Checking onboarding screens")
+    public void validateOnboardingScreens() {
+        OnboardingScreens onboardingScreens = new OnboardingScreens();
+
+        // The first screen
         onboardingScreens.skipAndContineButtonsAreVisible();
-    }
+        onboardingScreens.imageIsVisible();
+        onboardingScreens.addLanguageButtonIsVisible();
+        onboardingScreens.headlineOfTheScreenHasExpectedText("The Free Encyclopedia …in over 300 languages");
 
-    @Test
-    @DisplayName("The first onboarding page.")
-    void checkTheFirstPage() {
-        onboardingScreens.validateTheFirstOnboardingScreen();
-    }
+        // The second screen
+        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.imageIsVisible();
+        onboardingScreens.headlineOfTheScreenHasExpectedText("New ways to explore");
+        onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(SECOND_PAGE_TEXT);
 
-    @Test
-    @DisplayName("The second onboarding page.")
-    void checkTheSecondPage() {
-        onboardingScreens.validateTheSecondOnboardingScreen();
-    }
+        // The third screen
+        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.imageIsVisible();
+        onboardingScreens.headlineOfTheScreenHasExpectedText("Reading lists with sync");
+        onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(THIRD_PAGE_TEXT);
 
-    @Test
-    @DisplayName("The third onboarding page.")
-    void checkTheThirdPage() {
-        onboardingScreens.validateTheThirdOnboardingScreen();
-    }
-
-    @Test
-    @DisplayName("The fourth onboarding page.")
-    void checkTheFourthPage() {
-        onboardingScreens.validateTheFourthOnboardingScreen();
+        // The fourth screen
+        onboardingScreens.tapToMoveToTheNextScreen();
+        onboardingScreens.imageIsVisible();
+        onboardingScreens.headlineOfTheScreenHasExpectedText("Data & Privacy");
+        onboardingScreens.theMainTextOfTheScreenCompliesWithTheRequirements(FOURTH_PAGE_TEXT);
+        onboardingScreens.theGetStartedButtonIsVisible();
     }
 }

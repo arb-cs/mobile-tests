@@ -28,7 +28,7 @@ public class LocalDriver implements WebDriverProvider {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
             .setPlatformName(ANDROID)
-            .setPlatformVersion(config.platfromVersion())
+            .setPlatformVersion(config.platformVersion())
             .setDeviceName(config.deviceName())
             .setApp(getAppPath())
             .setAppPackage(config.appPackage())

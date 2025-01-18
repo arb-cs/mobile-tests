@@ -6,7 +6,6 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
-import static data.Texts.*;
 import static io.appium.java_client.AppiumBy.className;
 import static io.appium.java_client.AppiumBy.id;
 
@@ -17,7 +16,7 @@ public class OnboardingScreens {
         continueButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_forward_button")),
         images = $(id("org.wikipedia.alpha:id/imageViewCentered")),
         addLangButton = $(id("org.wikipedia.alpha:id/addLanguageButton")),
-        headerTextOnScreens = $(id("org.wikipedia.alpha:id/primaryTextView")),
+        headlineTextOnScreens = $(id("org.wikipedia.alpha:id/primaryTextView")),
         mainTextOnScreens = $(id("org.wikipedia.alpha:id/secondaryTextView")),
         secondScreen = pageIndexes.get(1),
         thirdScreen = pageIndexes.get(2),
@@ -25,7 +24,7 @@ public class OnboardingScreens {
         getStartedButton = $(id("org.wikipedia.alpha:id/fragment_onboarding_done_button"));
 
 
-    @Step("Check that on the onboarding screens the Skip and Continue buttons are visible.")
+    @Step("Checking that on the onboarding screens the Skip and Continue buttons are visible.")
     public OnboardingScreens skipAndContineButtonsAreVisible() {
         skipButton.shouldBe(Condition.visible);
         continueButton.shouldBe(Condition.visible);
@@ -33,43 +32,49 @@ public class OnboardingScreens {
         return this;
     }
 
-    @Step("Check the first onboarding screen.")
-    public OnboardingScreens validateTheFirstOnboardingScreen() {
+    @Step("Image of the screen is visible.")
+    public OnboardingScreens imageIsVisible() {
         images.shouldBe(Condition.visible);
+
+        return this;
+    }
+
+    @Step("Add language button is visible.")
+    public OnboardingScreens addLanguageButtonIsVisible() {
         addLangButton.shouldBe(Condition.visible);
-        headerTextOnScreens.shouldHave(Condition.text("The Free Encyclopedia …in over 300 languages"));
+        return this;
+    }
+
+    @Step("Checking")
+    public OnboardingScreens headlineOfTheScreenHasExpectedText(String text) {
+        headlineTextOnScreens.shouldHave(Condition.text(text));
 
         return this;
     }
 
-    @Step("Check the second onboarding screen.")
-    public OnboardingScreens validateTheSecondOnboardingScreen() {
-        secondScreen.click();
-        images.shouldBe(Condition.visible);
-        headerTextOnScreens.shouldHave(Condition.text("New ways to explore"));
-        mainTextOnScreens.shouldHave(Condition.text(SECOND_PAGE_TEXT));
+    public OnboardingScreens theMainTextOfTheScreenCompliesWithTheRequirements(String text) {
+        mainTextOnScreens.shouldHave(Condition.text(text));
 
         return this;
     }
 
-    @Step("Check the third onboarding screen.")
-    public OnboardingScreens validateTheThirdOnboardingScreen() {
-        thirdScreen.click();
-        images.shouldBe(Condition.visible);
-        headerTextOnScreens.shouldHave(Condition.text("Reading lists with sync"));
-        mainTextOnScreens.shouldHave(Condition.text(THIRD_PAGE_TEXT));
-
-        return this;
-    }
-
-    @Step("Check the fourth onboarding screen.")
-    public OnboardingScreens validateTheFourthOnboardingScreen() {
-        fourthScreen.click();
-        images.shouldBe(Condition.visible);
-        headerTextOnScreens.shouldHave(Condition.text("Data & Privacy"));
+    public OnboardingScreens theGetStartedButtonIsVisible() {
         getStartedButton.shouldBe(Condition.visible);
-        mainTextOnScreens.shouldHave(Condition.text(FOURTH_PAGE_TEXT));
 
         return this;
+    }
+
+    int count = 0;
+
+    public void tapToMoveToTheNextScreen() {
+        if (count == 0) {
+            secondScreen.click();
+            count += 1;
+        } else if (count == 1) {
+            thirdScreen.click();
+            count += 1;
+        } else {
+            fourthScreen.click();
+        }
     }
 }

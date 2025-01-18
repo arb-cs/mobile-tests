@@ -6,15 +6,8 @@ import org.aeonbits.owner.Config;
     "classpath:local.properties"
 })
 public interface LocalConfig extends Config {
-    @Key("platfromVersion")
-    String platfromVersion();
-
-    @Key("deviceName")
+    String platformVersion();
     String deviceName();
-
-    @Key("appPackage")
     String appPackage();
-
-    @Key("appActivity")
     String appActivity();
 }

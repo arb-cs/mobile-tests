@@ -1,5 +1,8 @@
 package helpers;
 
+import config.Auth;
+
+import static config.Auth.auth;
 import static config.Browserstack.config;
 
 public class EnvironmentHelper {
@@ -11,8 +14,8 @@ public class EnvironmentHelper {
     public static boolean isEmulation = deviceHost.equals("emulation");
 
     // Browserstack config
-    public static final String bsLogin = System.getProperty("bs_login", config.login());
-    public static final String bsPassword = System.getProperty("bs_password", config.password());
+    public static final String bsLogin = auth.name();
+    public static final String bsPassword = auth.password();
 
     // Android config
     public static final boolean isAndroid = platform.equals("android");
