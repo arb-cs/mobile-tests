@@ -33,5 +33,6 @@ public class SearchTests extends TestBase {
         searchPage.enterSearchQuery("jUnit");
         searchPage.validateThatThereAreQueryResults();
         searchResultsScreen.openArticle();
+        searchResultsScreen.checkThatTheTitleHasExpectedText("JUnit");
     }
 }

@@ -17,7 +17,13 @@ public class SearchResultsScreen {
     @Step("Try to open the first article.")
     public SearchResultsScreen openArticle() {
         searchResults.first().click();
-        screenWebView.shouldHave(Condition.text("JUnit"));
+
+        return this;
+    }
+
+    @Step("Try to open the first article.")
+    public SearchResultsScreen checkThatTheTitleHasExpectedText(String title) {
+        screenWebView.shouldHave(Condition.text(title));
 
         return this;
     }

@@ -14,5 +14,6 @@ public class IosTests extends TestBase {
     void checkThatTypedTextIsDisplayed() {
         UiElements uiElements = new UiElements();
         uiElements.enterATextToTheTextInput("Hello world!");
+        uiElements.checkThatThePreviuoslyEnteredTextIsDisplayed("Hello world!");
     }
 }
