@@ -21,7 +21,7 @@ public class SearchResultsScreen {
         return this;
     }
 
-    @Step("Try to open the first article.")
+    @Step("Check that the article has expected title.")
     public SearchResultsScreen checkThatTheTitleHasExpectedText(String title) {
         screenWebView.shouldHave(Condition.text(title));
 
